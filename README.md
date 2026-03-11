@@ -67,7 +67,7 @@ The solution is designed for scalability through:
 3.  **Verify Database Execution Plans:**
     Connect to the database and use `EXPLAIN ANALYZE` on spatial queries to confirm index usage.
     ```sql
-    EXPLAIN ANALYZE SELECT * FROM trip_summaries WHERE ST_Within(origin_coord, ST_MakeEnvelope(5, 40, 20, 55, 4326));
+    EXPLAIN ANALYZE SELECT * FROM trip_summaries WHERE ST_Within(origin_coord::geometry, ST_MakeEnvelope(5, 40, 20, 55, 4326));
     ```
 
 ## Development
