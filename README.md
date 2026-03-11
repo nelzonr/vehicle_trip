@@ -18,18 +18,21 @@ A scalable solution for ingesting and reporting on trip data using Python, FastA
 ## Quick Start
 
 1.  **Build and Start Services:**
+
     ```bash
     docker-compose up -d --build
     ```
 
 2.  **Install Local Dependencies (for CLI):**
+
     ```bash
     pip install -r requirements.txt
     ```
 
 3.  **Run Ingestion using CLI:**
+
     ```bash
-    python cli/main.py ingest trips.csv
+    python cli/main.py ingest data/trips.csv
     ```
 
 4.  **View Reports using CLI:**
@@ -46,6 +49,7 @@ A scalable solution for ingesting and reporting on trip data using Python, FastA
 ## Scalability Proofs (100M Entries)
 
 The solution is designed for scalability through:
+
 1.  **Database Indexing:** GIST indexes for spatial data and B-Tree for timestamps.
 2.  **Ingestion in Chunks:** Data is processed in 5,000-row chunks to prevent memory issues.
 3.  **Pre-Aggregation:** Reports query the `trip_summaries` table, which is significantly smaller than the raw `trips` table while maintaining the required precision.
@@ -68,7 +72,6 @@ The solution is designed for scalability through:
 
 ## Development
 
-All commands and code are in English.
 SQL database is PostGIS enabled.
 WebSocket implementation avoids client-side polling.
 Grouping logic is applied during the ingestion phase for maximum performance.
