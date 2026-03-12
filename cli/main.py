@@ -103,7 +103,7 @@ def report(
     typer.echo("-" * 50)
 
     if data.get("details"):
-        typer.echo("📋 Details by week:")
+        typer.echo("Details by week:")
         for detail in data["details"]:
             typer.echo(f"  Week {detail['week']}: {detail['trips']:,} trips")
 
